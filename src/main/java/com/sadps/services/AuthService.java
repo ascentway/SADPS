@@ -2,12 +2,13 @@ package com.sadps.services;
 
 import com.sadps.dto.SignupRequest;
 import com.sadps.entity.User;
+import com.sadps.exceptions.UnauthorizedException;
 import com.sadps.respository.UserRepository;
 import com.sadps.security.Role;
 import com.sadps.security.jwt.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -51,44 +52,32 @@ public class AuthService {
     public String login(String email, String password){
 
         User user = userRepository.findByEmail(email)
-                .orElse(null);
+                .orElseThrow(()-> new UnauthorizedException("INVALID_CREDENTIALS"));
 
-        if (user == null){
-            return "Invalid Credentials";
-        }
+        if (!passwordEncoder.matches(password, user.getPassword())){
+            user.setFailedAttempts(user.getFailedAttempts()+1);
 
-        if (!user.isAccountNonLocked()){
-            if(user.getLockTime() != null){
-                long currentTime = System.currentTimeMillis();
-                if (currentTime - user.getLockTime() < LOCK_DURATION_MS){
-                    return "Account is Locked. Try Again Later.";
-                }
+            auditService.log("LOGIN_FAILED", email);
 
-                user.setAccountNonLocked(true);
-                user.setFailedAttempts(0);
-                user.setLockTime(null);
-            }
-        }
-
-        if(!passwordEncoder.matches(password, user.getPassword())){
-            user.setFailedAttempts(user.getFailedAttempts() +1 );
-
-            if(user.getFailedAttempts() >= MAX_FAILED_ATTEMPTS){
+            if(user.getFailedAttempts() >= 5){
                 user.setAccountNonLocked(false);
                 user.setLockTime(System.currentTimeMillis());
+                auditService.log("ACCOUNT_LOCKED", email);
             }
-
             userRepository.save(user);
-            return "Invalid Credentials";
+            throw new UnauthorizedException("INVALID_CREDENTIALS");
         }
 
+        if(!user.isAccountNonLocked()){
+            auditService.log("LOGIN_BLOCKED_LOCKED_ACCOUNT",email);
+            throw new UnauthorizedException("Account is locked");
+        }
         user.setFailedAttempts(0);
-        user.setAccountNonLocked(true);
         user.setLockTime(null);
         userRepository.save(user);
 
-        String token = jwtService.generateToken(user);
-        return "Login Successful. Token:" +token;
+        auditService.log("LOGIN_SUCCESS", email);
+        return jwtService.generateToken(user);
     }
 
 }

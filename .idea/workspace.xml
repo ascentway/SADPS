@@ -4,17 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8659793e-1b6a-4419-a8cd-32eef6851b4b" name="Changes" comment="Security Implications made to the RBAC Database Access">
+    <list default="true" id="8659793e-1b6a-4419-a8cd-32eef6851b4b" name="Changes" comment="Implemented User &amp; Admin Verification and also defined logs for activity.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/controller/AuditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/controller/AuditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/controller/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/controller/ThreatDetectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/controller/ThreatDetectionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/dto/ChangePasswordRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/dto/ChangePasswordRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/dto/UserResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/dto/UserResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/exceptions/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/exceptions/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/exceptions/UnauthorizedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/exceptions/UnauthorizedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/services/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/services/AuthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/controller/AuditController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/controller/AuditController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/dto/ChangePasswordRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/dto/ChangePasswordRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/dto/UserResponseDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/dto/UserResponseDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/exceptions/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/exceptions/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/exceptions/UnauthorizedException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/exceptions/UnauthorizedException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/services/AuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/services/AuthService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/services/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +45,9 @@
     &quot;accountId&quot;: &quot;180dd3b6-99d0-4a74-9d72-507cca86f838&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -122,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766061710465</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Implemented User &amp; Admin Verification and also defined logs for activity.">
+      <option name="closed" value="true" />
+      <created>1766384386815</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1766384386815</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,6 +153,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial" />
     <MESSAGE value="Security Implications made to the RBAC Database Access" />
-    <option name="LAST_COMMIT_MESSAGE" value="Security Implications made to the RBAC Database Access" />
+    <MESSAGE value="Implemented User &amp; Admin Verification and also defined logs for activity." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented User &amp; Admin Verification and also defined logs for activity." />
   </component>
 </project>
