@@ -40,10 +40,8 @@ public class UserController {
     public ResponseEntity<?> changePassword(@RequestBody ChangePasswordRequest request){
         String email = SecurityUtils.getCurrentUserEmail();
         userService.changePassword(
-                email,
-                request.getCurrentPassword(),
-                request.getNewPassword()
+               email, request
         );
-        return ResponseEntity.ok("Password Changes Successfully");
+        return ResponseEntity.ok("Password Updated Successfully");
     }
 }
