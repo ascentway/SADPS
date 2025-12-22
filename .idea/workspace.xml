@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8659793e-1b6a-4419-a8cd-32eef6851b4b" name="Changes" comment="Initial">
+    <list default="true" id="8659793e-1b6a-4419-a8cd-32eef6851b4b" name="Changes" comment="Security Implications made to the RBAC Database Access">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/controller/AuditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/controller/AuditController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/controller/FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/controller/ThreatDetectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/controller/ThreatDetectionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/entity/AuditLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/entity/AuditLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/exceptions/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/exceptions/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/respository/AuditRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/respository/AuditRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/security/utils/SecurityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/security/utils/SecurityUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/services/AuditService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/services/AuditService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/dto/ChangePasswordRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/dto/ChangePasswordRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/controller/AuditController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/controller/AuditController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/dto/ChangePasswordRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/dto/ChangePasswordRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/services/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +23,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="upgrades" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -52,7 +58,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "upgrades",
+    "git-widget-placeholder": "feature",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
@@ -108,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765979177796</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Security Implications made to the RBAC Database Access">
+      <option name="closed" value="true" />
+      <created>1766061710465</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1766061710465</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,6 +138,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial" />
+    <MESSAGE value="Security Implications made to the RBAC Database Access" />
+    <option name="LAST_COMMIT_MESSAGE" value="Security Implications made to the RBAC Database Access" />
   </component>
 </project>

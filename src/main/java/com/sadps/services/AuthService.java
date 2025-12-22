@@ -22,6 +22,8 @@ public class AuthService {
     private final JwtService jwtService;
     @Autowired
     private final PasswordEncoder passwordEncoder;
+    @Autowired
+    private final AuditService auditService;
 
     private static final int MAX_FAILED_ATTEMPTS = 5;
     private static final long LOCK_DURATION_MS = 30 * 60 * 1000;
