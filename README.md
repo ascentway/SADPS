@@ -1,12 +1,13 @@
 # SADPS  
 ## Secure Authentication & Data Protection System
 
-> 🚧 **Status: Under Active Development / Production**  
-> This project is currently being developed and improved.  
-> Features, APIs, and structure may change frequently.
+> 🚧 **Status: Under Active Development (Learning & Upskilling Project)**  
+> This project is being developed to explore and implement real-world backend
+> security, scalability, and monitoring concepts.  
+> It is **not production-ready** and is intended for **learning purposes only**.
 
 ![Build](https://img.shields.io/badge/build-in--progress-yellow)
-![Status](https://img.shields.io/badge/status-under%20production-orange)
+![Status](https://img.shields.io/badge/status-learning%20project-orange)
 ![Java](https://img.shields.io/badge/java-21-blue)
 ![Spring Boot](https://img.shields.io/badge/spring--boot-4.x-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -15,46 +16,90 @@
 
 ## 🔐 About the Project
 
-**SADPS (Secure Authentication & Data Protection System)** is a backend-focused security project built using **Java and Spring Boot**, aimed at implementing **secure authentication mechanisms**, **data protection techniques**, and **industry-level best practices**.
+**SADPS (Secure Authentication & Data Protection System)** is a backend-focused
+Spring Boot project created to **practice and understand real-world security,
+performance, and observability patterns** commonly used in enterprise systems.
 
-This project is being developed as a **learning + production-ready foundation**, focusing on clean architecture, security, and scalability. And to get exposure to industry level production code formatting and new learnings.
+The goal of this project is **upskilling**, not delivering a production system.
 
 ---
 
-## 🚀 Current Features (Work in Progress)
+## 🚀 Current Focus Areas (Work in Progress)
 
-- 🔑 Authentication system (in development)
+- 🔑 Authentication & authorization concepts
 - 🛡️ Secure handling of sensitive data
 - 🧩 Modular Spring Boot architecture
-- ⚙️ Maven-based project setup
-- 📦 Clean and extensible codebase
+- ⚙️ Event-driven and asynchronous processing
+- 📊 Monitoring & observability
+- 🚀 Performance optimization techniques
 
-> ⚠️ Some features may be partially implemented or experimental.
+> ⚠️ Some modules are experimental and may change frequently.
 
 ---
 
-## 🛣️ Roadmap (Planned)
+## 🧠 Planned & Learning-Oriented Implementations
 
-- [ Done ] Role-based authentication (RBAC)
-- [ Done ] JWT-based security implementation
-- [ Done ] Password hashing & encryption
-- [ Done ] API validation & error handling
-- [ Done ] Logging & monitoring
-- [ In Progress ] Unit & integration testing
-- [ In Progress] Docker support
-- [ In Progress] Production-ready configuration
-- And more modules are planned ahead.
+### ✅ Messaging & Events
+- Apache Kafka for:
+  - Authentication events
+  - Security logs
+  - Asynchronous processing
+
+### ✅ Data Auditing
+- Hibernate Envers for:
+  - Entity change tracking
+  - Audit logs
+  - Historical data analysis
+
+### ✅ Caching & Performance
+- Redis cache for:
+  - Rate limiting
+  - Temporary authentication data
+  - Performance optimization
+
+### ✅ Monitoring & Observability
+- Spring Boot Actuator
+- Prometheus for metrics collection
+- Grafana dashboards for visualization
+
+### ✅ Security Enhancements
+- CAPTCHA validation (anti-bot protection)
+- Role-based access control (RBAC)
+- Secure REST APIs
+
+### ✅ Admin Utilities
+- REST API to download audit/log data
+  - Restricted to admin access
+  - Intended for analysis and learning
+
 ---
 
-## 🧠 Tech Stack
+## 🛣️ Roadmap (Learning Goals)
+
+- [ ] Kafka producer & consumer integration
+- [ ] Redis caching strategies
+- [ ] Hibernate Envers auditing
+- [ ] Prometheus metrics exposure
+- [ ] Grafana dashboards
+- [ ] CAPTCHA validation flow
+- [ ] Secure admin-only APIs
+- [ ] Docker setup (optional learning step)
+
+---
+
+## 🧰 Tech Stack
 
 | Technology | Purpose |
 |----------|--------|
-| Java | Core programming language |
+| Java 17 | Core language |
 | Spring Boot | Backend framework |
-| Maven | Dependency & build management |
-| REST APIs | Communication layer |
-| JWT Token | For Secure logging and authentication |
+| Spring Security | Authentication & authorization |
+| Apache Kafka | Event streaming |
+| Redis | Caching & rate limiting |
+| Hibernate Envers | Audit logging |
+| Prometheus | Metrics |
+| Grafana | Monitoring dashboards |
+| Maven | Build & dependency management |
 
 ---
 
@@ -66,7 +111,7 @@ SADPS/
 ├── pom.xml # Maven configuration
 ├── mvnw / mvnw.cmd # Maven wrapper
 ├── README.md # Documentation
-└── LICENSE # License file
+└── LICENSE # License
 
 yaml
 Copy code
@@ -76,42 +121,35 @@ Copy code
 ## 🧪 Running the Project (Development)
 
 ### Prerequisites
-
-- Java 21+ (recommended Java 21)
-- Maven (or Maven Wrapper)
+- Java 11+ (Java 17 recommended)
+- Maven or Maven Wrapper
 - Git
 
-### Clone Repository
+### Clone & Run
 
 ```bash
 git clone https://github.com/ascentway/SADPS.git
 cd SADPS
-Build & Run
-bash
-Copy code
 ./mvnw clean install
 ./mvnw spring-boot:run
 🤝 Contribution Status
-🚫 Not accepting external contributions yet
+🚫 External contributions are currently closed
 
-This repository is currently under solo development.
-Once the core structure is stable, contribution guidelines will be added.
+This is a personal upskilling project.
+Contribution guidelines may be added once the core architecture stabilizes.
 
-📌 Notes
-This project is only learning and upskill purpose only.
+📌 Disclaimer
+This project is for learning purposes only
 
-APIs may change without notice
+Not intended for direct production use
 
-Documentation will improve as development progresses
+Security implementations are educational, not compliance-certified
 
 📄 License
-This project is licensed under the MIT License.
+Licensed under the MIT License.
 See the LICENSE file for details.
 
-⭐ Future Vision
-The goal is to evolve SADPS into a robust, secure backend template that can be used as a base for real-world authentication and security-driven applications.
-
-🛠️ Built with learning, security, and scalability in mind.
-
-markdown
-Copy code
+⭐ Vision
+To evolve SADPS into a well-documented learning reference
+for backend developers exploring security, performance,
+and observability in Spring Boot applications.
