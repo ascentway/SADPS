@@ -7,8 +7,8 @@
 
 ![Build](https://img.shields.io/badge/build-in--progress-yellow)
 ![Status](https://img.shields.io/badge/status-under%20production-orange)
-![Java](https://img.shields.io/badge/java-17-blue)
-![Spring Boot](https://img.shields.io/badge/spring--boot-3.x-brightgreen)
+![Java](https://img.shields.io/badge/java-21-blue)
+![Spring Boot](https://img.shields.io/badge/spring--boot-4.x-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
