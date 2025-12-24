@@ -83,7 +83,7 @@ The goal of this project is **upskilling**, not delivering a production system.
 - [ ] Grafana dashboards
 - [ ] CAPTCHA validation flow
 - [ ] Secure admin-only APIs
-- [ ] Docker setup (optional learning step)
+- [ ] Docker setup
 
 ---
 
@@ -91,7 +91,7 @@ The goal of this project is **upskilling**, not delivering a production system.
 
 | Technology | Purpose |
 |----------|--------|
-| Java 17 | Core language |
+| Java 21 | Core language |
 | Spring Boot | Backend framework |
 | Spring Security | Authentication & authorization |
 | Apache Kafka | Event streaming |
@@ -121,7 +121,7 @@ Copy code
 ## 🧪 Running the Project (Development)
 
 ### Prerequisites
-- Java 11+ (Java 17 recommended)
+- Java 21+ (Java 21 recommended)
 - Maven or Maven Wrapper
 - Git
 
