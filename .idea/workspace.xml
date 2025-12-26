@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8659793e-1b6a-4419-a8cd-32eef6851b4b" name="Changes" comment="">
+    <list default="true" id="8659793e-1b6a-4419-a8cd-32eef6851b4b" name="Changes" comment="Initial">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,11 +172,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial" />
     <MESSAGE value="Security Implications made to the RBAC Database Access" />
     <MESSAGE value="Implemented User &amp; Admin Verification and also defined logs for activity." />
     <MESSAGE value="Fixed error while updating the user or admin details returning 500 instead of 401 when password is incorrect" />
     <MESSAGE value="Rate Limiter Configuration Added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rate Limiter Configuration Added" />
+    <MESSAGE value="Initial" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial" />
   </component>
 </project>
