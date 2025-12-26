@@ -12,5 +12,4 @@ public class UserResponseDto {
     private String fullName;
     private String role;
 
-
 }
