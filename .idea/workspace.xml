@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8659793e-1b6a-4419-a8cd-32eef6851b4b" name="Changes" comment="Fixed error while updating the user or admin details returning 500 instead of 401 when password is incorrect">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sadps/exceptions/RateLimitExceededException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sadps/security/filters/RateLimitingFilter.java" afterDir="false" />
+    <list default="true" id="8659793e-1b6a-4419-a8cd-32eef6851b4b" name="Changes" comment="Rate Limiter Configuration Added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/config/RateLimiterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/config/RateLimiterConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/dto/UserResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/dto/UserResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/exceptions/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/exceptions/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sadps/security/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sadps/security/jwt/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/config/RateLimiterConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/config/RateLimiterConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/exceptions/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/exceptions/GlobalExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sadps/security/jwt/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sadps/security/jwt/JwtAuthenticationFilter.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +33,17 @@
     &quot;assignee&quot;: &quot;ranjan-dhruv&quot;
   }
 }</component>
+  <component name="GitHubPullRequestState"><![CDATA[{
+  "prStates": [
+    {
+      "id": {
+        "id": "PR_kwDOQqcxbc65lm1K",
+        "number": 2
+      },
+      "lastSeen": 1766734236796
+    }
+  ]
+}]]></component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ascentway/SADPS.git&quot;,
@@ -149,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766407505065</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Rate Limiter Configuration Added">
+      <option name="closed" value="true" />
+      <created>1766734135758</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1766734135758</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,6 +176,7 @@
     <MESSAGE value="Security Implications made to the RBAC Database Access" />
     <MESSAGE value="Implemented User &amp; Admin Verification and also defined logs for activity." />
     <MESSAGE value="Fixed error while updating the user or admin details returning 500 instead of 401 when password is incorrect" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed error while updating the user or admin details returning 500 instead of 401 when password is incorrect" />
+    <MESSAGE value="Rate Limiter Configuration Added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rate Limiter Configuration Added" />
   </component>
 </project>
