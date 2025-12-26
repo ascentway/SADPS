@@ -132,14 +132,68 @@ git clone https://github.com/ascentway/SADPS.git
 cd SADPS
 ./mvnw clean install
 ./mvnw spring-boot:run
+
 🤝 Contribution Status
 🚫 External contributions are currently closed
 
-This is a personal upskilling project.
-Contribution guidelines may be added once the core architecture stabilizes.
+🐳 Running SADPS with Docker
+
+Docker support is provided to help understand containerization concepts
+and to simplify running the backend in a consistent environment.
+
+This setup is intended for **local development and learning purposes only**.
+
+📦 Prerequisites
+- Docker (20.x or newer)
+- Docker Desktop (Windows / macOS) or Docker Engine (Linux)
+
+🔨 Build Docker Image
+
+From the project root directory (where `Dockerfile` and `pom.xml` exist):
+
+```bash
+docker build -t sadps-backend .
+⏳ The first build may take a few minutes as Maven dependencies are downloaded.
+
+▶️ Run Docker Container
+
+bash
+Copy code
+docker run -d -p 8080:8080 --name sadps-backend-container sadps-backend
+The application will be available at:
+http://localhost:8080
+
+📄 View Application Logs
+
+bash
+Copy code
+docker logs sadps-backend-container
+🛑 Stop & Remove Container
+
+bash
+Copy code
+docker stop sadps-backend-container
+docker rm sadps-backend-container
+
+🧠 Docker Notes 
+Uses a multi-stage Docker build
+
+Separates build and runtime environments
+
+Keeps the final image lightweight
+
+Designed for backend containerization practice
+
+⚠️ Disclaimer
+This Docker setup does not include:
+
+Externalized secrets management
+
+Production-grade security hardening
+
+Orchestration (Kubernetes, ECS, etc.)
 
 📌 Disclaimer
-This project is for learning purposes only
 
 Not intended for direct production use
 
