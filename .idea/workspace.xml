@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8659793e-1b6a-4419-a8cd-32eef6851b4b" name="Changes" comment="Rate Limiter Configuration Added">
+    <list default="true" id="8659793e-1b6a-4419-a8cd-32eef6851b4b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,17 +33,17 @@
     &quot;assignee&quot;: &quot;ranjan-dhruv&quot;
   }
 }</component>
-  <component name="GitHubPullRequestState"><![CDATA[{
-  "prStates": [
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
     {
-      "id": {
-        "id": "PR_kwDOQqcxbc65lm1K",
-        "number": 2
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOQqcxbc65lm1K&quot;,
+        &quot;number&quot;: 2
       },
-      "lastSeen": 1766734236796
+      &quot;lastSeen&quot;: 1766734236796
     }
   ]
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ascentway/SADPS.git&quot;,
