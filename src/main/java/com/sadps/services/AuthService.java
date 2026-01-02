@@ -2,33 +2,33 @@ package com.sadps.services;
 
 import com.sadps.dto.SignupRequest;
 import com.sadps.entity.User;
+import com.sadps.exceptions.UnauthorizedException;
 import com.sadps.respository.UserRepository;
 import com.sadps.security.Role;
 import com.sadps.security.jwt.JwtService;
+import com.sadps.security.kafka.SecurityEvent;
+import com.sadps.security.kafka.SecurityEventProducer;
+import com.sadps.security.redis.LoginAttemptService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-
 public class AuthService {
 
-    @Autowired
     private final UserRepository userRepository;
-    @Autowired
     private final JwtService jwtService;
-    @Autowired
     private final PasswordEncoder passwordEncoder;
+    private final LoginAttemptService loginAttemptService;
+    private final SecurityEventProducer securityEventProducer;
 
     private static final int MAX_FAILED_ATTEMPTS = 5;
     private static final long LOCK_DURATION_MS = 30 * 60 * 1000;
 
-    public String registerUser(SignupRequest request){
+    public String registerUser(SignupRequest request) {
 
-        if(userRepository.existsByEmail(request.getEmail())){
+        if (userRepository.existsByEmail(request.getEmail())) {
             return "Email Already Registered";
         }
 
@@ -46,39 +46,50 @@ public class AuthService {
         return "User Registered Successfully";
     }
 
-    public String login(String email, String password){
+    public String login(String email, String password) {
+
+        if (loginAttemptService.isBlocked(email)) {
+            securityEventProducer.publish(
+                    SecurityEvent.builder()
+                            .eventType("LOGIN_BLOCKED_REDIS")
+                            .userEmail(email)
+                            .build()
+            );
+            throw new UnauthorizedException("Too many login attempts. Try again later.");
+        }
 
         User user = userRepository.findByEmail(email)
-                .orElse(null);
+                .orElseThrow(() -> new UnauthorizedException("INVALID_CREDENTIALS"));
 
-        if (user == null){
-            return "Invalid Credentials";
-        }
+        if (!passwordEncoder.matches(password, user.getPassword())) {
 
-        if (!user.isAccountNonLocked()){
-            if(user.getLockTime() != null){
-                long currentTime = System.currentTimeMillis();
-                if (currentTime - user.getLockTime() < LOCK_DURATION_MS){
-                    return "Account is Locked. Try Again Later.";
-                }
+            int attempts = loginAttemptService.increment(email);
 
-                user.setAccountNonLocked(true);
-                user.setFailedAttempts(0);
-                user.setLockTime(null);
-            }
-        }
+            securityEventProducer.publish(
+                    SecurityEvent.builder()
+                            .eventType("LOGIN_FAILED")
+                            .userEmail(email)
+                            .build()
+            );
 
-        if(!passwordEncoder.matches(password, user.getPassword())){
-            user.setFailedAttempts(user.getFailedAttempts() +1 );
-
-            if(user.getFailedAttempts() >= MAX_FAILED_ATTEMPTS){
+            if (attempts >= MAX_FAILED_ATTEMPTS) {
                 user.setAccountNonLocked(false);
                 user.setLockTime(System.currentTimeMillis());
+                userRepository.save(user);
+
+                securityEventProducer.publish(
+                        SecurityEvent.builder()
+                                .eventType("ACCOUNT_LOCKED")
+                                .userEmail(email)
+                                .build()
+                );
             }
 
-            userRepository.save(user);
-            return "Invalid Credentials";
+            throw new UnauthorizedException("INVALID_CREDENTIALS");
         }
+
+
+        loginAttemptService.reset(email);
 
         user.setFailedAttempts(0);
         user.setAccountNonLocked(true);
@@ -86,7 +97,14 @@ public class AuthService {
         userRepository.save(user);
 
         String token = jwtService.generateToken(user);
-        return "Login Successful. Token:" +token;
-    }
 
+        securityEventProducer.publish(
+                SecurityEvent.builder()
+                        .eventType("LOGIN_SUCCESS")
+                        .userEmail(email)
+                        .build()
+        );
+
+        return "Login Successful. Token: " + token;
+    }
 }
