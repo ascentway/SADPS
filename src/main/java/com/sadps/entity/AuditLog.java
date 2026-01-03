@@ -14,6 +14,13 @@ import java.time.Instant;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+
 public class AuditLog {
 
     @Id
@@ -26,4 +33,12 @@ public class AuditLog {
 
     private String source;
     private String ipAddress;
+    private Long id;
+
+    private String action;
+
+    private String performedBy;
+
+    private Instant timestamp;
+
 }

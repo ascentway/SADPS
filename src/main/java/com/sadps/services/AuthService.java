@@ -10,6 +10,8 @@ import com.sadps.security.kafka.SecurityEvent;
 import com.sadps.security.kafka.SecurityEventProducer;
 import com.sadps.security.redis.LoginAttemptService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,8 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final LoginAttemptService loginAttemptService;
     private final SecurityEventProducer securityEventProducer;
+    @Autowired
+    private final AuditService auditService;
 
     private static final int MAX_FAILED_ATTEMPTS = 5;
     private static final long LOCK_DURATION_MS = 30 * 60 * 1000;
@@ -91,12 +95,37 @@ public class AuthService {
 
         loginAttemptService.reset(email);
 
+    public String login(String email, String password){
+
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(()-> new UnauthorizedException("INVALID_CREDENTIALS"));
+
+        if (!passwordEncoder.matches(password, user.getPassword())){
+            user.setFailedAttempts(user.getFailedAttempts()+1);
+
+            auditService.log("LOGIN_FAILED", email);
+
+            if(user.getFailedAttempts() >= 5){
+                user.setAccountNonLocked(false);
+                user.setLockTime(System.currentTimeMillis());
+                auditService.log("ACCOUNT_LOCKED", email);
+            }
+            userRepository.save(user);
+            throw new UnauthorizedException("INVALID_CREDENTIALS");
+        }
+
+        if(!user.isAccountNonLocked()){
+            auditService.log("LOGIN_BLOCKED_LOCKED_ACCOUNT",email);
+            throw new UnauthorizedException("Account is locked");
+        }
         user.setFailedAttempts(0);
-        user.setAccountNonLocked(true);
         user.setLockTime(null);
         userRepository.save(user);
 
         String token = jwtService.generateToken(user);
+        auditService.log("LOGIN_SUCCESS", email);
+        return jwtService.generateToken(user);
+    }
 
         securityEventProducer.publish(
                 SecurityEvent.builder()
