@@ -8,6 +8,12 @@ import lombok.*;
 
 import java.time.Instant;
 
+@Builder
+@Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Getter
 @Setter
@@ -19,6 +25,14 @@ public class AuditLog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private String action;
+    private String performedBy;
+    private Instant timestamp;
+
+    private String source;
+    private String ipAddress;
     private Long id;
 
     private String action;
