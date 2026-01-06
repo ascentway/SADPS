@@ -11,30 +11,34 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-
 public class AuditService {
 
     private final AuditRepository auditRepository;
 
-    public void save(SecurityEvent event){
+
+    public void save(SecurityEvent event) {
         AuditLog log = AuditLog.builder()
                 .action(event.getEventType())
                 .performedBy(event.getUserEmail())
                 .timestamp(Instant.now())
                 .source("KAFKA")
-    private final AuditRepository auditRepository;
-
-    public void log(String action, String email){
-        AuditLog log = AuditLog.builder()
-                .action(action)
-                .performedBy(email)
-                .timestamp(Instant.now())
                 .build();
 
         auditRepository.save(log);
     }
 
-    public List<AuditLog> getAllLogs(){
+    public void log(String action, String email) {
+        AuditLog log = AuditLog.builder()
+                .action(action)
+                .performedBy(email)
+                .timestamp(Instant.now())
+                .source("APPLICATION")
+                .build();
+
+        auditRepository.save(log);
+    }
+
+    public List<AuditLog> getAllLogs() {
         return auditRepository.findAll();
     }
 }
